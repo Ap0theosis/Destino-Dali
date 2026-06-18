@@ -7,6 +7,7 @@
 radius = 40.012497
 
 [node name="Inimigo" type="CharacterBody2D" unique_id=1170101042 groups=["enemy"]]
+collision_layer = 0
 script = ExtResource("1_pt50e")
 metadata/_custom_type_script = "uid://bl6y7rdiulad8"
 
@@ -22,5 +23,16 @@ shape = SubResource("CircleShape2D_0xm2m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt" unique_id=1302404979]
 shape = SubResource("CircleShape2D_0xm2m")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=744437692]
+custom_minimum_size = Vector2(100, 0)
+offset_left = -49.0
+offset_top = -61.0
+offset_right = 51.0
+offset_bottom = -34.0
+step = 1.0
+value = 30.0
+rounded = true
+show_percentage = false
 
 [connection signal="area_entered" from="Hurt" to="." method="_on_hurt_area_entered"]

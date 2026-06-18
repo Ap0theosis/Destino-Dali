@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cwhn2dcrlns6b"]
+
+[ext_resource type="Script" uid="uid://c1pkdfjhb1hf7" path="res://scripts/explosion.gd" id="1_17npe"]
+[ext_resource type="Texture2D" uid="uid://dgmwe8vppmjkt" path="res://sprites/explosion.png" id="1_nfeox"]
+
+[node name="Explosion" type="Sprite2D" unique_id=1928106945]
+z_index = 1
+texture = ExtResource("1_nfeox")
+script = ExtResource("1_17npe")
+
+[node name="Timer" type="Timer" parent="." unique_id=1119237747]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

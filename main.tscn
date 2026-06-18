@@ -1,11 +1,25 @@
 [gd_scene format=3 uid="uid://bn03xpdrsb8hq"]
 
+[ext_resource type="Texture2D" uid="uid://187c3ca266r1" path="res://sprites/bg.png" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cqopb2hjjsuy3" path="res://scenes/jogador.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bftjr7crvst1x" path="res://scenes/inimigo.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D" unique_id=1169031357]
 
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=876716654]
+modulate = Color(0.24477637, 0.2447764, 0.24477637, 1)
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(360, 240)
+repeat_times = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=129879122]
+scale = Vector2(2, 2)
+texture = ExtResource("1_h2yge")
+
 [node name="Jogador" parent="." unique_id=120071678 groups=["player"] instance=ExtResource("1_ig7tw")]
+position = Vector2(174, 99)
+
+[node name="Camera2D" type="Camera2D" parent="Jogador" unique_id=1144136377]
 
 [node name="Inimigo" parent="." unique_id=1170101042 instance=ExtResource("2_0xm2m")]
 position = Vector2(137, 0)
