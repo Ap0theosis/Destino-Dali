@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cqopb2hjjsuy3"]
+
+[ext_resource type="Script" uid="uid://xdl3345drhdv" path="res://scripts/Jogador.gd" id="1_vwxko"]
+[ext_resource type="Texture2D" uid="uid://dlseei5ldfrxs" path="res://sprites/playerform_1.png" id="2_uahlj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uahlj"]
+radius = 16.0
+
+[node name="Jogador" type="CharacterBody2D" unique_id=120071678]
+script = ExtResource("1_vwxko")
+metadata/_custom_type_script = "uid://xdl3345drhdv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462005185]
+shape = SubResource("CircleShape2D_uahlj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=373501764]
+rotation = 1.5707964
+texture = ExtResource("2_uahlj")

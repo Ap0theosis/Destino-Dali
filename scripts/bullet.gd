@@ -1,0 +1,7 @@
+extends Area2D
+
+var speed = 100
+var direcao = Vector2(0,0)
+
+func _process(delta: float) -> void:
+	position += direcao * speed * delta

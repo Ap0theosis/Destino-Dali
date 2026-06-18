@@ -1,11 +1,39 @@
-extends Node
+extends CharacterBody2D
+class_name NaveBase
 
+var atributos = {
+	"direcao" : Vector2(0,0),
+	"velocidade" : 100,
+	"escudos" : false,
+	"elemento" : "",
+	"vida" : 0
+}
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func mover_se() -> void:
+	var velocidade = atributos["velocidade"]
+	var direcao = atributos["direcao"]
+	velocity = velocidade * direcao.normalized()
+	move_and_slide()
 
+func take_damage(value: int) -> void:
+	if atributos["escudo"]:
+		atributos["escudo"] = false
+		return
+	
+	atributos["vida"] -= value
+	if atributos["vida"] <= 0:
+		explodir()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func aplicar_elemento(elemento: String) -> void:
+	atributos["elemento"] = elemento
+	match elemento:
+		"fogo":
+			atributos["velocidade"] = 200
+			atributos["vida"] = 5
+		"lua":
+			atributos["velocidade"] = 100
+			atributos["vida"] = 10
+			atributos["escudos"] = true
+
+func explodir() -> void:
+	queue_free()
