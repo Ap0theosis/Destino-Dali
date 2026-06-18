@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bftjr7crvst1x"]
+
+[ext_resource type="Script" uid="uid://bl6y7rdiulad8" path="res://scripts/Inimigo.gd" id="1_pt50e"]
+[ext_resource type="Texture2D" uid="uid://4wp3lpcj36np" path="res://sprites/inimigoform_1.png" id="2_61lki"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
+radius = 40.012497
+
+[node name="Inimigo" type="CharacterBody2D" unique_id=1170101042 groups=["enemy"]]
+script = ExtResource("1_pt50e")
+metadata/_custom_type_script = "uid://bl6y7rdiulad8"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139823269]
+rotation = -1.5707964
+texture = ExtResource("2_61lki")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=625587444]
+shape = SubResource("CircleShape2D_0xm2m")
+
+[node name="Hurt" type="Area2D" parent="." unique_id=1682038738]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt" unique_id=1302404979]
+shape = SubResource("CircleShape2D_0xm2m")
+
+[connection signal="area_entered" from="Hurt" to="." method="_on_hurt_area_entered"]

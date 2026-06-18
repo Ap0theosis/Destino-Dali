@@ -40,6 +40,8 @@ func atirar() -> void:
 	var new_bullet = BULLET.instantiate()
 	new_bullet.direcao = weapon["direcao"]
 	new_bullet.speed = weapon["velocidade"]
+	new_bullet.damage = weapon["dano"]
+	new_bullet.elemento = atributos["elemento"]
 	new_bullet.global_position = global_position
 	new_bullet.rotation = weapon["direcao"].angle()
 	get_tree().current_scene.add_child(new_bullet)
@@ -57,3 +59,8 @@ func aplicar_elemento(elemento: String) -> void:
 			weapon["velocidade"] = 100
 			weapon["dano"] = 1
 			weapon["recarga"] = 0.5
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		take_damage(area.damage)

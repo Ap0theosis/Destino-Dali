@@ -4,7 +4,7 @@ class_name NaveBase
 var atributos = {
 	"direcao" : Vector2(0,0),
 	"velocidade" : 100,
-	"escudos" : false,
+	"escudo" : false,
 	"elemento" : "",
 	"vida" : 0
 }
